@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import { Routes, Route, Link } from "react-router-dom";
 import './App.css';
+import CreateUser from './pages/CreateUser';
+import CreateBot from './pages/CreateBot';
 
 function App() {
   return (
@@ -9,6 +11,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
+        <Route path="login" element={<CreateUser />} />
+        <Route path="bot" element={<CreateBot />} />
       </Routes>
     </div>
   );
@@ -23,6 +27,10 @@ function Home() {
       </main>
       <nav>
         <Link to="/about">About</Link>
+        <br></br>
+        <Link to="/login">Login</Link>
+        <br></br>
+        <Link to="/bot">Bot</Link>
       </nav>
     </>
   );
