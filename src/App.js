@@ -3,6 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import './App.css';
 import CreateUser from './pages/CreateUser';
 import CreateBot from './pages/CreateBot';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="login" element={<CreateUser />} />
         <Route path="bot" element={<CreateBot />} />
+        <Route path="dashboard" element={<Dashboard />} />
+        
       </Routes>
     </div>
   );
@@ -31,6 +34,8 @@ function Home() {
         <Link to="/login">Login</Link>
         <br></br>
         <Link to="/bot">Bot</Link>
+        <br></br>
+        <Link to="/dashboard">Dashboard</Link>
       </nav>
     </>
   );
