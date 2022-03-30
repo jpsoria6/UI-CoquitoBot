@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+.dashboard{
+  width: 25%;
+  background:grey;
+  height: 100%;
+}
+
+.card{
+  width: 275px;
+  height: 100px;
+}

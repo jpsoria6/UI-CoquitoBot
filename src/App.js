@@ -4,6 +4,7 @@ import './App.css';
 import CreateUser from './pages/CreateUser';
 import CreateBot from './pages/CreateBot';
 import Dashboard from './components/Dashboard';
+import PantallaPrincipal from './pages/Principal';
 import Operations from './pages/Operations';
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
       <h1>Welcome to React Router!</h1>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
+        <Route path="about" element={<MenuPrincipalBot />} />
         <Route path="login" element={<CreateUser />} />
         <Route path="bot" element={<CreateBot />} />
         <Route path="dashboard" element={<Dashboard />} />
@@ -44,20 +45,11 @@ function Home() {
   );
 }
 
-function About() {
+function MenuPrincipalBot() {
   return (
-    <>
-      <main>
-        <h2>Who are we?</h2>
-        <p>
-          That feels like an existential question, don't you
-          think?
-        </p>
-      </main>
-      <nav>
-        <Link to="/">Home</Link>
-      </nav>
-    </>
+   <div>
+      <PantallaPrincipal/>
+   </div>
   );
 }
 
