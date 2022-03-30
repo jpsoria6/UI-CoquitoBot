@@ -5,6 +5,7 @@ import CreateUser from './pages/CreateUser';
 import CreateBot from './pages/CreateBot';
 import Dashboard from './components/Dashboard';
 import PantallaPrincipal from './pages/Principal';
+import Operations from './pages/Operations';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <Route path="login" element={<CreateUser />} />
         <Route path="bot" element={<CreateBot />} />
         <Route path="dashboard" element={<Dashboard />} />
-        
+        <Route path="operations" element={<Operations />} />
       </Routes>
     </div>
   );
@@ -37,6 +38,8 @@ function Home() {
         <Link to="/bot">Bot</Link>
         <br></br>
         <Link to="/dashboard">Dashboard</Link>
+        <br></br>
+        <Link to="/operations">Operations</Link>
       </nav>
     </>
   );
