@@ -7,10 +7,10 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import CandlestickChartIcon from '@mui/icons-material/CandlestickChart';
 import HistoryIcon from '@mui/icons-material/History';
 import PersonIcon from '@mui/icons-material/Person';
+import { Link } from "react-router-dom";
 
 
-function Dashboard(){
-
+function NavbarCustom(){
 
 
     return(
@@ -19,7 +19,7 @@ function Dashboard(){
             direction="column"
             justifyContent="space-between"
             alignItems="flex-start"
-            sx={{width:"20vw", border:'0 1px 0 0 solid black'}}>
+            sx={{width:"20vw", marginTop:'10vh'}}>
             <Container>
                 <Icon component={AccountCircleIcon}></Icon>
                 <Typography variant="h6" 
@@ -36,8 +36,12 @@ function Dashboard(){
                 aria-label="vertical contained button group"
                 sx={{width:'100%'}}
                 >
-                    <ButtonBorderless icon={<DashboardIcon/>} label='Dashboard'></ButtonBorderless>
-                    <ButtonBorderless icon={<CandlestickChartIcon/>} label='Operations'></ButtonBorderless>
+                    <Link to='/'>
+                    <ButtonBorderless icon={<DashboardIcon/>} label='Navbar'></ButtonBorderless>
+                    </Link>
+                    <Link to='/operations'>
+                        <ButtonBorderless icon={<CandlestickChartIcon/>} label='Operations'></ButtonBorderless>
+                    </Link>
                     <ButtonBorderless icon={<HistoryIcon/> } label='History'></ButtonBorderless>
                     <ButtonBorderless icon={<PersonIcon/>} label='My Account'></ButtonBorderless>
                 </ButtonGroup>
@@ -49,4 +53,4 @@ function Dashboard(){
 }
 
 
-export default Dashboard
+export default NavbarCustom

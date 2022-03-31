@@ -1,27 +1,33 @@
 import logo from './logo.svg';
 import { Routes, Route, Link } from "react-router-dom";
 import './App.css';
+import Grid from '@mui/material/Grid';
 import CreateUser from './pages/CreateUser';
 import CreateBot from './pages/CreateBot';
-import Dashboard from './components/Dashboard';
+import NavbarCustom from './components/NavbarCustom';
 import PantallaPrincipal from './pages/Principal';
 import Operations from './pages/Operations';
 
 function App() {
   return (
     <div className="App">
-      <h1>Welcome to React Router!</h1>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<MenuPrincipalBot />} />
-        <Route path="login" element={<CreateUser />} />
-        <Route path="bot" element={<CreateBot />} />
-        <Route path="dashboard" element={<Dashboard />} />
-        <Route path="operations" element={<Operations />} />
-      </Routes>
+      <Grid container spacing={2}>
+        <Grid item xs={2}>
+          <NavbarCustom />
+        </Grid>
+        <Grid item xs={10}>
+          <Routes>
+            <Route path="/" element={<MenuPrincipalBot />} />
+            <Route path="login" element={<CreateUser />} />
+            <Route path="bot" element={<CreateBot />} />
+            <Route path="operations" element={<Operations />} />
+          </Routes>
+        </Grid>
+      </Grid>
     </div>
   );
 }
+
 
 function Home() {
   return (
@@ -44,6 +50,7 @@ function Home() {
     </>
   );
 }
+
 
 function MenuPrincipalBot() {
   return (

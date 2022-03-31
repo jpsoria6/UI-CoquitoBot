@@ -3,7 +3,7 @@ import TradingViewWidget, {Themes} from 'react-tradingview-widget';
 
 function TradingView(props){
     return(
-        <div style={{'width': '800px', 'height':'600px'}}>
+        <div style={{'width': props.width, 'height':props.height}}>
         <TradingViewWidget
         symbol={props.pair}
         theme={Themes.DARK}
