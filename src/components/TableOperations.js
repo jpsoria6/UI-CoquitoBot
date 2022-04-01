@@ -63,29 +63,19 @@ function Tabla() {
                 <Box sx={{
                       display: 'flex',
                       justifyContent: 'flex-start',
-                      p: 1,
-                      m: 1,
-                      bgcolor: 'background.paper',
-                      borderRadius: 1,
                     }}>
                   <TableCell component="th" scope="row">
-                      <img src={row.image} style={{width:"40px", height:"30px"}} alt="" />
+                      <img src={row.image} style={{width:"50px", height:"40px"}} alt="" />
                   </TableCell>
                   <TableCell align="left"> <b>{row.Name} </b> <br/> <div style={{color:'green'}}>{row.laverge}</div></TableCell>
                 </Box>
                   <TableCell align="right">{row.Margin}</TableCell>
                   <TableCell align="right">{row.Type}</TableCell>
-                  <Box sx={{
-                      display: 'flex',
-                      justifyContent: 'flex-end',
-                      bgcolor: 'background.paper',
-                      borderRadius: 1,
-                    }}
-                  >
-                    <TableCell align="right"> <b>{row.ROE}</b> 
-                        <ExpandLessIcon/>
-                    </TableCell>
-                  </Box>
+                 
+                  <TableCell align="right"> <b>{row.ROE}</b> 
+                      <ExpandLessIcon viewBox='0 0 24 12' color='red'/>
+                  </TableCell>
+                 
                 </TableRow>
               ))}
             </TableBody>

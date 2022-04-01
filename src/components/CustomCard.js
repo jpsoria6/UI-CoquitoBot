@@ -9,6 +9,8 @@ import img2 from '../img/img7.jpg';
 import img3 from '../img/img8.jpg';
 import img4 from '../img/img9+.jpg';
 import Grid from '@mui/material/Grid';
+import '../index.css';
+import { Scale } from '@mui/icons-material';
 
 
 const typecards = [
@@ -36,7 +38,7 @@ function BasicCard() {
       <div>
           <Grid container spacing={1}>
         {typecards.map((row) => (
-             <Card sx={{ minWidth: 275 }} style={{margin:'5px'}}>
+             <Card sx={{ minWidth: 230 }} style={{margin:'5px'}}>
              <CardContent>
                  <Box sx={{
                       display: 'flex',
