@@ -37,7 +37,7 @@ function NavbarCustom(){
                 sx={{width:'100%'}}
                 >
                     <Link to='/'>
-                    <ButtonBorderless icon={<DashboardIcon/>} label='Navbar'></ButtonBorderless>
+                    <ButtonBorderless icon={<DashboardIcon/>} label='Dashboard'></ButtonBorderless>
                     </Link>
                     <Link to='/operations'>
                         <ButtonBorderless icon={<CandlestickChartIcon/>} label='Operations'></ButtonBorderless>

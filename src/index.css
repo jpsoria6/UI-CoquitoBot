@@ -23,4 +23,10 @@ code {
 .card{
   width: 275px;
   height: 100px;
+  overflow: hidden;
+}
+
+.cardEffect{
+  -webkit-animation: alternate;
+  transform: scale(1.3);
 }

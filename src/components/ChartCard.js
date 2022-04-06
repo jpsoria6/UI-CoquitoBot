@@ -9,6 +9,7 @@ import img1 from '../img/img10.jpg';
 import img2 from '../img/img11.webp';
 import img3 from '../img/img12.webp';
 import Grid from '@mui/material/Grid';
+import { Link } from "react-router-dom";
 
 
 
@@ -42,6 +43,11 @@ function MediaCard() {
                 <Typography variant="body2" color="text.secondary">
                   {row.time}
                 </Typography>
+                <CardActions>
+                  <Link to='/Graphic'>
+                    <Button size="small" color="primary"> Ver Más </Button>
+                  </Link>
+                </CardActions>
               </CardContent>
             </Card>
             ))}

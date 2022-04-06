@@ -7,6 +7,7 @@ import CreateBot from './pages/CreateBot';
 import NavbarCustom from './components/NavbarCustom';
 import PantallaPrincipal from './pages/Principal';
 import Operations from './pages/Operations';
+import ViewGraphic from './pages/ViewGraphic';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="login" element={<CreateUser />} />
             <Route path="bot" element={<CreateBot />} />
             <Route path="operations" element={<Operations />} />
+            <Route path="Graphic" element={<ViewGraphic/>} />
           </Routes>
         </Grid>
       </Grid>
