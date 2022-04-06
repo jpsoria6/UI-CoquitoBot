@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import img1 from '../img/img10.jpg';
+import img1 from '../img/img10.jpeg';
 import img2 from '../img/img11.webp';
 import img3 from '../img/img12.webp';
 import Grid from '@mui/material/Grid';

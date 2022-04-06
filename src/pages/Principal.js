@@ -7,7 +7,7 @@ import Tabla from '../components/TableOperations';
 
 function PantallaPrincipal(){
     return (
-        <div>
+        <div style={{margin:'5px'}}>
             <div style={{margin:'10px'}}>
                 <BasicCard/>
             </div>

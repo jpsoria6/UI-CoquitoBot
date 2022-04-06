@@ -26,7 +26,7 @@ function NavbarCustom(){
                 gutterBottom 
                 component="div" 
                 sx={{alignSelf:"center", alignContent:"center"}}>
-                    Juan Pablo Soria
+                    Guzman Facundo 
                 </Typography>
             </Container>
             <Divider style={{width:'90%'}} />
@@ -42,7 +42,9 @@ function NavbarCustom(){
                     <Link to='/operations'>
                         <ButtonBorderless icon={<CandlestickChartIcon/>} label='Operations'></ButtonBorderless>
                     </Link>
-                    <ButtonBorderless icon={<HistoryIcon/> } label='History'></ButtonBorderless>
+                    <Link to='History'>
+                        <ButtonBorderless icon={<HistoryIcon/> } label='History'></ButtonBorderless>
+                    </Link>
                     <ButtonBorderless icon={<PersonIcon/>} label='My Account'></ButtonBorderless>
                 </ButtonGroup>
             </Container>

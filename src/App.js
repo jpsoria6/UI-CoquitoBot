@@ -8,6 +8,7 @@ import NavbarCustom from './components/NavbarCustom';
 import PantallaPrincipal from './pages/Principal';
 import Operations from './pages/Operations';
 import ViewGraphic from './pages/ViewGraphic';
+import History from './pages/History';
 
 function App() {
   return (
@@ -19,9 +20,10 @@ function App() {
         <Grid item xs={10}>
           <Routes>
             <Route path="/" element={<MenuPrincipalBot />} />
-            <Route path="login" element={<CreateUser />} />
+            <Route path="createUser" element={<CreateUser />} />
             <Route path="bot" element={<CreateBot />} />
             <Route path="operations" element={<Operations />} />
+            <Route path="History" element={<History/>} />
             <Route path="Graphic" element={<ViewGraphic/>} />
           </Routes>
         </Grid>
@@ -31,27 +33,7 @@ function App() {
 }
 
 
-function Home() {
-  return (
-    <>
-      <main>
-        <h2>Welcome to the homepage!</h2>
-        <p>You can do this, I believe in you.</p>
-      </main>
-      <nav>
-        <Link to="/about">About</Link>
-        <br></br>
-        <Link to="/login">Login</Link>
-        <br></br>
-        <Link to="/bot">Bot</Link>
-        <br></br>
-        <Link to="/dashboard">Dashboard</Link>
-        <br></br>
-        <Link to="/operations">Operations</Link>
-      </nav>
-    </>
-  );
-}
+
 
 
 function MenuPrincipalBot() {

@@ -19,6 +19,7 @@ const columns = [
 const Operations = () =>{
 
     return (
+        <div style={{margin:'5px'}}>
         <Grid>
             <Grid xs={8}>
                 <TradingView 
@@ -35,6 +36,7 @@ const Operations = () =>{
                 />
             </Grid>
         </Grid>
+        </div>
     )
 }
 
