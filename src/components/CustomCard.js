@@ -17,7 +17,7 @@ const typecards = [
     {img:img1, name:'USDT', number:3400, description:'+55% than last week'},
     {img:img2, name:'Operations', number:2300, description:'+33% than last week'},
     {img:img3, name:'Roe Total', number:345 + '%', description:'+1% than yesterday'},
-    {img:img4, name:'Pending Operations', number:5, description:'Just updated'},
+    {img:img4, name:'Number of open trades', number:5, description:'Just updated'},
 ]
 
 

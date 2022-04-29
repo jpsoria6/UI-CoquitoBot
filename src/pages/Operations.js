@@ -2,6 +2,7 @@ import { Grid,Button } from '@mui/material';
 import React, { useState } from 'react';
 import TradingView from '../components/TradingView';
 import { DataGrid } from '@mui/x-data-grid';
+import NavbarCustom from '../components/NavbarCustom';
 
 
 const rows = [
@@ -22,6 +23,11 @@ const columns = [
 const Operations = () =>{
 
     return (
+        <Grid container spacing={2}>
+        <Grid item xs={2}>
+          <NavbarCustom />
+        </Grid>
+        <Grid item xs={10}>
         <Grid container>
             <Grid item xs={8} sx={{marginRight:'5vw'}}>
                 <TradingView 
@@ -29,16 +35,25 @@ const Operations = () =>{
                 height='80vh'
                 pair="BTCUSDT"/>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={3} style={{margin:'3px'}}>
                 <DataGrid
                   rows={rows}
                   columns={columns}
                   hideFooter
                 />
             </Grid>
-            <Grid item xs={12}>
-                <Button sx={{margin:'5px'}} variant="contained" color="error">Close Operation</Button>
+            <Grid container spacing={2}>
+                <Grid item xs={3}>
+                    <h5>AMOUNT   50</h5>
+                    <h5>PROFIT   <b style={{color:'green'}}> +50 </b> </h5>
+                    <h5>RESULT   50</h5>
+                </Grid>
+                <Grid item xs={6}>
+                    <Button sx={{margin:'5px'}} variant="contained" color="error">Close Operation</Button>
+                </Grid>
             </Grid>
+        </Grid>
+        </Grid>
         </Grid>
     )
 }

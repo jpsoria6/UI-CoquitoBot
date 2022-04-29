@@ -36,13 +36,13 @@ function NavbarCustom(){
                 aria-label="vertical contained button group"
                 sx={{width:'100%'}}
                 >
-                    <Link to='/'>
+                    <Link to='/menuPrincipal'>
                     <ButtonBorderless icon={<DashboardIcon/>} label='Dashboard'></ButtonBorderless>
                     </Link>
                     <Link to='/operations'>
                         <ButtonBorderless icon={<CandlestickChartIcon/>} label='Operations'></ButtonBorderless>
                     </Link>
-                    <Link to='History'>
+                    <Link to='/History'>
                         <ButtonBorderless icon={<HistoryIcon/> } label='History'></ButtonBorderless>
                     </Link>
                     <ButtonBorderless icon={<PersonIcon/>} label='My Account'></ButtonBorderless>

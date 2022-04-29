@@ -24,11 +24,11 @@ const useStyles = makeStyles({
 
 
 const rows = [
-    { image:img4 , Name: 'BTC-USDT', Margin: '$' + 136,total:'+$320', ROE:13, fecha:'01/01/2022 22:13:44' },
-    { image:img3 , Name: 'BNB-USDT', Margin: '$' + 122,total:'+$220', ROE:12, fecha:'01/01/2022 22:23:32' },
-    { image:img2 , Name: 'ADA-USDT', Margin: '$' + 132,total:'-$23', ROE:12, fecha:'01/01/2022 22:30:53' },
-    { image:img5 , Name: 'ETH-USDT', Margin: '$' + 152,total:'-$30', ROE:13, fecha:'01/01/2022 22:03:11' },
-    { image:img1 , Name: 'XRP-USDT', Margin: '$' + 113,total:'+$3420', ROE:21, fecha:'01/01/2022 22:39:24' },
+    { image:img4 , Name: 'BTC-USDT', Billetera: '$' + 136,total:'+$320', ROE:13, fecha:'01/01/2022 22:13:44' },
+    { image:img3 , Name: 'BNB-USDT', Billetera: '$' + 122,total:'+$220', ROE:12, fecha:'01/01/2022 22:23:32' },
+    { image:img2 , Name: 'ADA-USDT', Billetera: '$' + 132,total:'-$23', ROE:12, fecha:'01/01/2022 22:30:53' },
+    { image:img5 , Name: 'ETH-USDT', Billetera: '$' + 152,total:'-$30', ROE:13, fecha:'01/01/2022 22:03:11' },
+    { image:img1 , Name: 'XRP-USDT', Billetera: '$' + 113,total:'+$3420', ROE:21, fecha:'01/01/2022 22:39:24' },
  
 ];
 
@@ -54,7 +54,7 @@ function TablaHistorial() {
                 </Box>
                 <TableCell align="right">Fecha</TableCell>
                 <TableCell align="right">Total realizado</TableCell>
-                <TableCell align="right">Margin</TableCell>
+                <TableCell align="right">Billetera</TableCell>
                 <TableCell align="right">ROE%</TableCell>
               </TableRow>
             </TableHead>
@@ -72,7 +72,7 @@ function TablaHistorial() {
                 </Box>
                   <TableCell align="right">{row.fecha}</TableCell>
                   <TableCell align="right">{row.total}</TableCell>
-                  <TableCell align="right">{row.Margin}</TableCell>
+                  <TableCell align="right">{row.Billetera}</TableCell>
                  
                   <TableCell align="right"> <b>{row.ROE}</b> 
                       <ExpandLessIcon viewBox='0 0 24 12' color='red'/>

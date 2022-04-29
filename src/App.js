@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import { Routes, Route, Link } from "react-router-dom";
 import './App.css';
 import Grid from '@mui/material/Grid';
@@ -9,17 +8,28 @@ import PantallaPrincipal from './pages/Principal';
 import Operations from './pages/Operations';
 import ViewGraphic from './pages/ViewGraphic';
 import History from './pages/History';
+import Login from "./pages/Login";
 
 function App() {
   return (
     <div className="App">
-      <Grid container spacing={2}>
+
+          <Routes>
+            <Route path="/" element={<Login/>} />
+            <Route path="/menuPrincipal" element={<MenuPrincipalBot />} />
+            <Route path="createUser" element={<CreateUser />} />
+            <Route path="/bot" element={<CreateBot />} />
+            <Route path="operations" element={<Operations />} />
+            <Route path="History" element={<History/>} />
+            <Route path="Graphic" element={<ViewGraphic/>} />
+          </Routes>
+      {/* <Grid container spacing={2}>
         <Grid item xs={2}>
           <NavbarCustom />
         </Grid>
         <Grid item xs={10}>
           <Routes>
-            <Route path="/" element={<MenuPrincipalBot />} />
+            <Route path="/menuPrincipal" element={<MenuPrincipalBot />} />
             <Route path="createUser" element={<CreateUser />} />
             <Route path="bot" element={<CreateBot />} />
             <Route path="operations" element={<Operations />} />
@@ -27,11 +37,10 @@ function App() {
             <Route path="Graphic" element={<ViewGraphic/>} />
           </Routes>
         </Grid>
-      </Grid>
+      </Grid> */}
     </div>
   );
 }
-
 
 
 

@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import PasswordInput from '../components/PasswordInput';
 import Grid from '@mui/material/Grid';
 import { FormGroup,Checkbox,FormControlLabel } from '@mui/material';
+import { Link } from "react-router-dom";
 
 function CreateUser(){
  
@@ -29,7 +30,9 @@ function CreateUser(){
                 <FormControlLabel control={<Checkbox defaultChecked />} label="Send notification by Email" />
                 <FormControlLabel control={<Checkbox defaultChecked />} label="Send notification by Whatsapp" />
             </FormGroup>
-            <Button variant="contained" size='large'>Register</Button>
+            <Link to="/bot">
+                <Button variant="contained" size='large'>Register</Button>
+            </Link>
         </Grid>
     )
 

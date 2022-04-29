@@ -4,22 +4,22 @@ import '../styles/styleLogin.css'
 import { Link } from "react-router-dom";
 
 
-function Login(){
-    // const signUpButton = document.getElementById('signUp');
-    // const signInButton = document.getElementById('signIn');
-    // const container = document.getElementById('container');
+function Login({onLogin}){
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
     
-    // // Evento para abrir form de registro
-    // signUpButton.addEventListener('click', () =>
-    //   container.classList.add('right-panel-active')
-    // );
+    // Evento para abrir form de registro
+    signUpButton.addEventListener('click', () =>
+      container.classList.add('right-panel-active')
+    );
     
-    // // Evento para regresar al form de iniciar sesión
-    // signInButton.addEventListener('click', () =>
-    //   container.classList.remove('right-panel-active')
-    // );
+    // Evento para regresar al form de iniciar sesión
+    signInButton.addEventListener('click', () =>
+      container.classList.remove('right-panel-active')
+    );
     return(
-        <div class="container" id="container">
+        <div class="container clasbody" id="container">
       <div class="form-container sign-up-container">
         <form action="#">
           <h1>Crea tu Cuenta</h1>
@@ -33,9 +33,10 @@ function Login(){
           <input type="email" placeholder="Usuario" />
           <input type="password" placeholder="Password" />
           <a href="#">Olvidaste tu contraseña?</a>
-          <Link to='/princ'>
-             <button>Iniciar sesión</button>
+          <Link to="/menuPrincipal">
+             <button type='button' onClick={onLogin}>Iniciar sesión</button>          
           </Link>
+          
         </form>
       </div>
       <div class="overlay-container">
