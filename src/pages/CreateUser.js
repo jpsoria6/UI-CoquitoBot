@@ -5,6 +5,8 @@ import PasswordInput from '../components/PasswordInput';
 import Grid from '@mui/material/Grid';
 import { FormGroup,Checkbox,FormControlLabel } from '@mui/material';
 import { Link } from "react-router-dom";
+import axios from 'axios';
+import { enviroment } from '../enviroment';
 
 function CreateUser(){
  
@@ -13,6 +15,22 @@ function CreateUser(){
     const [phone,setPhone] = useState("")
     const [password,setPassword] = useState("")
 
+    async function postAccount(){
+        let params = {
+          nickname,
+          password,
+          phone,
+          email
+        }
+        axios.post(enviroment.urlBaseBack + 'api/Account', {params})
+        .then((res)=>{
+          if(res){
+            return console.log(res)
+          }
+          return false
+        })
+      }
+      
     return (
         <Grid
         container
@@ -31,7 +49,7 @@ function CreateUser(){
                 <FormControlLabel control={<Checkbox defaultChecked />} label="Send notification by Whatsapp" />
             </FormGroup>
             <Link to="/bot">
-                <Button variant="contained" size='large'>Register</Button>
+                <Button variant="contained" size='large' onClick={()=>{postAccount()}}>Register</Button>
             </Link>
         </Grid>
     )

@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import CustomSelect from '../components/CustomSelect';
+import axios from 'axios';
 
  
 function CreateBot(){
@@ -22,6 +23,22 @@ function CreateBot(){
         { "value" : 3,"text" : "HIGH" },
     ]
 
+    async function postBot (nickname, apiKey,apiSecret,percentToInvest,modeId){
+        let params = {
+            nickname,
+            apiKey,
+            apiSecret,
+            percentToInvest,
+            modeId
+        }
+        axios.post("https://d176-186-122-88-80.ngrok.io/api/Bot",{params})
+        .then((res) => {
+            if(res){
+                return console.log(res)
+            }
+            return false
+        })
+    }
 
     return (
         <Grid

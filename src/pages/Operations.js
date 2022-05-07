@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import TradingView from '../components/TradingView';
 import { DataGrid } from '@mui/x-data-grid';
 import NavbarCustom from '../components/NavbarCustom';
-
+import axios from 'axios';
 
 const rows = [
     {id: 1, coinPair:'BTC/USDT' , roe:'30'},
@@ -19,6 +19,16 @@ const columns = [
     { field: 'coinPair', headerName: 'Coin Pair', width: 120,sortable: false  },
     { field: 'roe', headerName: '%ROE', width: 40, sortable: false  },
 ]
+
+async function getOperation(){
+    axios.get('https://d176-186-122-88-80.ngrok.io/api/Account')
+    .then((res)=>{
+      if(res){
+        return console.log(res)
+      }
+      return false
+    })
+  }
     
 const Operations = () =>{
 
