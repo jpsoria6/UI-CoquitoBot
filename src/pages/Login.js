@@ -7,15 +7,10 @@ import {enviroment} from '../enviroment'
 
 
 function Login({onLogin}){
-    // const signUpButton = document.getElementById('signUp');
-    // const signInButton = document.getElementById('signIn');
-    // const container = document.getElementById('container');
     const [UserName,setUserName] = useState('')
     const [password, setPassword] = useState('')
+    const [rightPanelActive, setRightPanelActive] = useState(false)
     
-    // useEffect(()=>{
-    //   postLogin('facundo','2019')
-    // },[])
     async function postLogin(){
       let params = {
         UserName,
@@ -29,25 +24,15 @@ function Login({onLogin}){
         return false
       })
     }
-
-    // Evento para abrir form de registro
-    // signUpButton.addEventListener('click', () =>
-    //   container.classList.add('right-panel-active')
-    // );
-    
-    // // Evento para regresar al form de iniciar sesión
-    // signInButton.addEventListener('click', () =>
-    //   container.classList.remove('right-panel-active')
-    // );
     return(
-        <div class="container clasbody" id="container">
-      <div class="form-container sign-up-container">
+        <div className={`container clasbody ${rightPanelActive ? "right-panel-active" : ""}`} id="container">
+      <div className="form-container sign-up-container">
         <form action="#">
           <h1>Crea tu Cuenta</h1>
           <CreateUser/>
         </form>
       </div>
-      <div class="form-container sign-in-container">
+      <div className="form-container sign-in-container">
         <form action="#">
           <h1>Iniciar Sesión</h1>
           <span>Usuario</span>
@@ -60,19 +45,19 @@ function Login({onLogin}){
           
         </form>
       </div>
-      <div class="overlay-container">
-        <div class="overlay">
-          <div class="overlay-panel overlay-left">
+      <div className="overlay-container">
+        <div className="overlay">
+          <div className="overlay-panel overlay-left">
             <h1>¡Bienvenido!</h1>
             <p>
               Inicia sesión con tu cuenta
             </p>
-            <button class="ghost" id="signIn">Inicia sesión</button>
+            <button className="ghost" onClick={e => setRightPanelActive(false)} id="signIn">Inicia sesión</button>
           </div>
-          <div class="overlay-panel overlay-right">
+          <div className="overlay-panel overlay-right">
             <h1>Hola!!!</h1>
             <p>Crear tu cuenta</p>
-            <button class="ghost" id="signUp" >Registrar</button>
+            <button className={`ghost`} onClick={e => setRightPanelActive(true)} >Registrar</button>
           </div>
         </div>
       </div>
