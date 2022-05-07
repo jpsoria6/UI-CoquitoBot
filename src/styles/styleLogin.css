@@ -227,3 +227,11 @@ button.ghost {
 .container.right-panel-active .overlay-right {
   transform: translateX(20%);
 }
+
+.caja {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 15px;
+  border: 4px;
+}

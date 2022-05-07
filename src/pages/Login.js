@@ -51,8 +51,8 @@ function Login({onLogin}){
         <form action="#">
           <h1>Iniciar Sesión</h1>
           <span>Usuario</span>
-          <input type="email" placeholder="Usuario" value={UserName} onChange={e=> {setUserName(e.target.UserName)}}/>
-          <input type="password" placeholder="Password" value={password} onChange={e => {setPassword(e.target.password)}} />
+          <input type="email" placeholder="Usuario" value={UserName} onChange={e=> {setUserName(e.target.value)}}/>
+          <input type="password" placeholder="Password" value={password} onChange={e => {setPassword(e.target.value)}} />
           <a href="#">Olvidaste tu contraseña?</a>
           <Link to="/menuPrincipal">
              <button type='button' onClick={() => {postLogin()}}>Iniciar sesión</button>          

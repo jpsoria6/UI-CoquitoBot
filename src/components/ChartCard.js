@@ -25,8 +25,8 @@ function MediaCard() {
   return (
       <div>
         <Grid container spacing={1}>
-            {cardRow.map((row) => (
-            <Card sx={{ maxWidth: 345 }} style={{margin:'10px', width:'30%'}}>
+            {cardRow.map((row,i) => (
+            <Card key={i} sx={{ maxWidth: 345 }} style={{margin:'10px', width:'30%'}}>
               <CardMedia
                 component="img"
                 height="140"

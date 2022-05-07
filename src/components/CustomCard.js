@@ -37,8 +37,8 @@ function BasicCard() {
   return (
       <div>
           <Grid container spacing={1}>
-        {typecards.map((row) => (
-             <Card sx={{ minWidth: 230 }} style={{margin:'5px'}}>
+        {typecards.map((row,i) => (
+             <Card key={i} sx={{ minWidth: 230 }} style={{margin:'5px'}}>
              <CardContent>
                  <Box sx={{
                       display: 'flex',
