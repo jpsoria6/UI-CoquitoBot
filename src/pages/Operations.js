@@ -20,15 +20,6 @@ const columns = [
     { field: 'roe', headerName: '%ROE', width: 40, sortable: false  },
 ]
 
-async function getOperation(){
-    axios.get('https://d176-186-122-88-80.ngrok.io/api/Account')
-    .then((res)=>{
-      if(res){
-        return console.log(res)
-      }
-      return false
-    })
-  }
     
 const Operations = () =>{
 

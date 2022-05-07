@@ -4,7 +4,8 @@ import '../styles/styleLogin.css'
 import { Link } from "react-router-dom";
 import axios from 'axios'
 import {enviroment} from '../enviroment'
-
+import Modal from '@mui/material/Modal';
+import ModalError from '../components/ModalError'
 
 function Login({onLogin}){
     const [UserName,setUserName] = useState('')
@@ -16,7 +17,7 @@ function Login({onLogin}){
         UserName,
         password
       }
-      axios.post(enviroment.urlBaseBack+'/Login', {params})
+      axios.post(enviroment.urlBaseBack+'/Login', params)
       .then((res)=>{
         if(res){
           return console.log(res)
@@ -24,6 +25,18 @@ function Login({onLogin}){
         return false
       })
     }
+    const [open, setOpen] = useState(false)
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    const handleClick = () => {
+      if(UserName.length === 0 || password.length=== 0){
+        return handleOpen
+      } else {
+        return postLogin()
+      }
+    }
+
     return(
         <div className={`container clasbody ${rightPanelActive ? "right-panel-active" : ""}`} id="container">
       <div className="form-container sign-up-container">
@@ -40,7 +53,15 @@ function Login({onLogin}){
           <input type="password" placeholder="Password" value={password} onChange={e => {setPassword(e.target.value)}} />
           <a href="#">Olvidaste tu contraseña?</a>
           <Link to="/menuPrincipal">
-             <button type='button' onClick={() => {postLogin()}}>Iniciar sesión</button>          
+             <button type='button' onClick={() => {handleClick()}}>Iniciar sesión</button>
+             <Modal
+               open={open}
+               onClose={handleClose}
+               aria-labelledby="modal-modal-title"
+               aria-describedby="modal-modal-description"
+             >
+            <ModalError></ModalError>
+            </Modal>     
           </Link>
           
         </form>
