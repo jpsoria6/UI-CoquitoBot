@@ -45,7 +45,9 @@ function NavbarCustom(){
                     <Link to='/History'>
                         <ButtonBorderless icon={<HistoryIcon/> } label='History'></ButtonBorderless>
                     </Link>
-                    <ButtonBorderless icon={<PersonIcon/>} label='My Account'></ButtonBorderless>
+                    <Link to='/MyAccount'>
+                        <ButtonBorderless icon={<PersonIcon/>} label='My Account'></ButtonBorderless>
+                    </Link>
                 </ButtonGroup>
             </Container>
             <Divider style={{width:'90%'}} />

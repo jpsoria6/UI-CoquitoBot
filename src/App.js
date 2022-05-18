@@ -7,6 +7,7 @@ import NavbarCustom from './components/NavbarCustom';
 import PantallaPrincipal from './pages/Principal';
 import Operations from './pages/Operations';
 import ViewGraphic from './pages/ViewGraphic';
+import MyAccount from './pages/MyAccount';
 import History from './pages/History';
 import Login from "./pages/Login";
 
@@ -22,6 +23,7 @@ function App() {
             <Route path="operations" element={<Operations />} />
             <Route path="History" element={<History/>} />
             <Route path="Graphic" element={<ViewGraphic/>} />
+            <Route path="MyAccount" element={<MyAccount/>} />
           </Routes>
       {/* <Grid container spacing={2}>
         <Grid item xs={2}>
