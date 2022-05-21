@@ -1,3 +1,4 @@
 export const enviroment = {
-    urlBaseBack: "http://localhost:3000/api"
+    urlBaseBack: "http://localhost:3000/api",
+    secretKey: "coquitoBot"
 }

@@ -32,7 +32,7 @@ const rows = [
  
 ];
 
-function Tabla() {
+function Tabla(props) {
     const classes = useStyles();
     return (
         <div style={{ height: 400, width: '100%' }}>

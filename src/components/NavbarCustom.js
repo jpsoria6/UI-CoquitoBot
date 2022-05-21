@@ -8,10 +8,16 @@ import CandlestickChartIcon from '@mui/icons-material/CandlestickChart';
 import HistoryIcon from '@mui/icons-material/History';
 import PersonIcon from '@mui/icons-material/Person';
 import { Link } from "react-router-dom";
+import { useEffect, useState } from 'react';
 
 
 function NavbarCustom(){
 
+    const [username,setUsername] = useState('')
+
+    useEffect(()=>{
+        setUsername(sessionStorage.getItem('userName'))
+    },[])
 
     return(
         <Grid container 
@@ -26,7 +32,7 @@ function NavbarCustom(){
                 gutterBottom 
                 component="div" 
                 sx={{alignSelf:"center", alignContent:"center"}}>
-                    Guzman Facundo 
+                    {username} 
                 </Typography>
             </Container>
             <Divider style={{width:'90%'}} />

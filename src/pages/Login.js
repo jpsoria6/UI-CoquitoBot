@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react';
+import React,{useState} from 'react';
 import CreateUser from './CreateUser'
 import '../styles/styleLogin.css'
 import { Link } from "react-router-dom";
@@ -6,6 +6,8 @@ import axios from 'axios'
 import {enviroment} from '../enviroment'
 import Modal from '@mui/material/Modal';
 import ModalError from '../components/ModalError'
+
+
 
 function Login({onLogin}){
     const [UserName,setUserName] = useState('')
@@ -20,6 +22,10 @@ function Login({onLogin}){
       axios.post(enviroment.urlBaseBack+'/Login', params)
       .then((res)=>{
         if(res){
+          sessionStorage.clear()
+          sessionStorage.setItem('userId',res.data.userID)
+          sessionStorage.setItem('userName',res.data.userName)
+          sessionStorage.setItem('userEmail',res.data.userEmail)
           return console.log(res)
         }
         return false
