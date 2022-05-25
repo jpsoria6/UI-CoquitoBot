@@ -7,10 +7,12 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import CustomSelect from '../components/CustomSelect';
 import axios from 'axios';
+import {enviroment} from '../enviroment';
 
  
 function CreateBot(){
  
+    const [nickname,setNickname] = useState("")
     const [apiKey,setApiKey] = useState("")
     const [apiSecret,setApiSecret] = useState("")
     const [currentRisk,setCurrentRisk] = useState("")
@@ -23,21 +25,28 @@ function CreateBot(){
         { "value" : 3,"text" : "HIGH" },
     ]
 
-    async function postBot (nickname, apiKey,apiSecret,percentToInvest,modeId){
+    const createBot = () => {
         let params = {
-            nickname,
-            apiKey,
-            apiSecret,
-            percentToInvest,
-            modeId
-        }
-        axios.post("https://d176-186-122-88-80.ngrok.io/api/Bot",{params})
-        .then((res) => {
-            if(res){
-                return console.log(res)
+            userId : sessionStorage.getItem('userId'),
+            bot : {
+                nickname,
+                apiKey,
+                secretKey: apiSecret,
+                percentToInvest: amountPerOperation,
+                modeId: currentRisk
             }
-            return false
-        })
+        }
+        axios.post(enviroment.urlBaseBack+'/Bot', params)
+        .then((res)=>{
+        if(res){
+          return console.log(res)
+        }
+        return false
+      })
+    }
+
+    const setSliderValue = (evt,newValue) =>{
+        setAmountPerOperation(newValue);
     }
 
     return (
@@ -48,10 +57,15 @@ function CreateBot(){
         justifyContent="center"
         alignItems="center"
         >
+            <TextField sx={{ m: 1, width: '50ch' }} id="nickname" label="Nickname" variant="outlined" value={nickname} onChange={e=>{setNickname(e.target.value)}}/>
             <TextField sx={{ m: 1, width: '50ch' }} id="apiKey" label="Api Key" variant="outlined" value={apiKey} onChange={e=>{setApiKey(e.target.value)}}/>
             <TextField sx={{ m: 1, width: '50ch' }} id="apiSecret" label="Api Secret" variant="outlined" value={apiSecret} onChange={e =>{setApiSecret(e.target.value)}}/>
             <Box sx={{m:1, width: '50ch' }}>
-                <CustomSelect label="Risk" data={riskPlans}/>
+                <CustomSelect 
+                    label="Risk" 
+                    data={riskPlans}
+                    value={currentRisk}
+                    set={setCurrentRisk}/>
             </Box>
             <Box sx={{m:1, width: '50ch' }}>
                 <Typography 
@@ -63,9 +77,10 @@ function CreateBot(){
                 min={minAmoutPerOperation} 
                 max={maxAmoutPerOperation}  
                 valueLabelDisplay="on"
+                onChange={setSliderValue}
                 />
             </Box>
-            <Button variant="contained" size='large'>Add Bot</Button>
+            <Button variant="contained" size='large' onClick={createBot}>Add Bot</Button>
         </Grid>
     )
 
