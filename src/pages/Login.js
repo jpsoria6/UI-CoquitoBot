@@ -9,7 +9,7 @@ import ModalError from '../components/ModalError'
 
 
 
-function Login({onLogin}){
+function Login(){
     const [UserName,setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [rightPanelActive, setRightPanelActive] = useState(false)
@@ -36,11 +36,7 @@ function Login({onLogin}){
     const handleClose = () => setOpen(false);
 
     const handleClick = () => {
-      if(UserName.length === 0 || password.length=== 0){
-        return handleOpen
-      } else {
-        return postLogin()
-      }
+     postLogin()
     }
 
     return(
@@ -58,17 +54,21 @@ function Login({onLogin}){
           <input type="email" placeholder="Usuario" value={UserName} onChange={e=> {setUserName(e.target.value)}}/>
           <input type="password" placeholder="Password" value={password} onChange={e => {setPassword(e.target.value)}} />
           <a href="#">Olvidaste tu contraseña?</a>
-          <Link to="/menuPrincipal">
-             <button type='button' onClick={() => {handleClick()}}>Iniciar sesión</button>
+            <Link to='/menuPrincipal'>
+             <button type='button' onClick={()=> handleClick()}>Iniciar sesión</button>
              <Modal
                open={open}
                onClose={handleClose}
                aria-labelledby="modal-modal-title"
                aria-describedby="modal-modal-description"
              >
-            <ModalError></ModalError>
+            <ModalError 
+              tittle="Error de logueo"
+              message="Ingrese contraseña y usuario "
+            ></ModalError>
             </Modal>     
-          </Link>
+            </Link>
+         
           
         </form>
       </div>
@@ -82,7 +82,7 @@ function Login({onLogin}){
             <button className="ghost" onClick={e => setRightPanelActive(false)} id="signIn">Inicia sesión</button>
           </div>
           <div className="overlay-panel overlay-right">
-            <h1>Hola!!!</h1>
+            <h1>¡¡Hola!!!</h1>
             <p>Crear tu cuenta</p>
             <button className={`ghost`} onClick={e => setRightPanelActive(true)} >Registrar</button>
           </div>

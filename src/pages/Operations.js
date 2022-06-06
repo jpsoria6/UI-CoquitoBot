@@ -1,28 +1,47 @@
 import { Grid,Button } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TradingView from '../components/TradingView';
 import { DataGrid } from '@mui/x-data-grid';
 import NavbarCustom from '../components/NavbarCustom';
 import axios from 'axios';
-
-const rows = [
-    {id: 1, coinPair:'BTC/USDT' , roe:'30'},
-    {id: 2, coinPair:'ETH/USDT' , roe:'-20'},
-    {id: 3, coinPair:'XRP/USDT' , roe:'40'},
-    {id: 4, coinPair:'ADA/USDT' , roe:'87'},
-    {id: 5, coinPair:'BNB/USDT' , roe:'-40'},
-    {id: 6, coinPair:'SFT/USDT' , roe:'33'},
-]
-
-const columns = [
-    { field: 'id', headerName: 'ID', width: 20, sortable: false  },
-    { field: 'coinPair', headerName: 'Coin Pair', width: 120,sortable: false  },
-    { field: 'roe', headerName: '%ROE', width: 40, sortable: false  },
-]
-
+import { enviroment } from '../enviroment';
     
 const Operations = () =>{
+    
+    const [operacioness, setOperacioness] = useState([])
+    const [par, setPar] = useState('')
 
+    const columns = [
+        { field: 'id', headerName: 'ID', width: 20, sortable: false  },
+        { field: 'coinPair', headerName: 'Coin Pair', width: 120,sortable: false  },
+        { field: 'roe', headerName: '%ROE', width: 40, sortable: false  },
+    ]
+
+    const GuardarPar = (prop) => {
+        operacioness.map((res) => 
+            {if(res.id === prop[0]){
+                setPar(res.coinPair)
+            }
+        })
+    }
+
+    useEffect(() => {
+        let queryParams = {
+            userId: sessionStorage.getItem('userId'),
+            pendings: true,
+        }
+        axios.get(enviroment.urlBaseBack+'/Operation', {params: queryParams})
+        .then(res => {
+            let finalRows = res.data.map( respuesta => (
+                {
+                    id: respuesta.orderId,
+                    coinPair: respuesta.coinPair,
+                    roe: respuesta.finalROE
+                }
+            ))
+            setOperacioness(finalRows)
+        })
+    },[])
     return (
         <Grid container spacing={2}>
         <Grid item xs={2}>
@@ -34,13 +53,16 @@ const Operations = () =>{
                 <TradingView 
                 width='60vw'
                 height='80vh'
-                pair="BTCUSDT"/>
+                pair={par}/>
             </Grid>
             <Grid item xs={3} style={{margin:'3px'}}>
                 <DataGrid
-                  rows={rows}
+                  rows={operacioness}
                   columns={columns}
                   hideFooter
+                  onSelectionModelChange={(newselect) => {
+                      GuardarPar(newselect)
+                  }}
                 />
             </Grid>
             <Grid container spacing={2}>

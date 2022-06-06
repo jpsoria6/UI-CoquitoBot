@@ -229,9 +229,24 @@ button.ghost {
 }
 
 .caja {
-  width: 50px;
   height: 50px;
-  margin: 10px;
   border-radius: 15px;
   border: 4px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+.cajaGrande{
+  height: 400px;
+  /*IMPORTANTE*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cajaMediana{
+  background: blanchedalmond;
+  width: 300px;
+  border: 10px;
+  border-radius: 0.5em;
+  padding: 10px;
 }
