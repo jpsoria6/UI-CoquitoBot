@@ -18,10 +18,6 @@ function PasswordInput(props){
         showPassword: false,
     });
     
-    const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-    };
-    
     const handleClickShowPassword = () => {
       setValues({
         ...values,
@@ -37,10 +33,9 @@ function PasswordInput(props){
         <FormControl sx={{ m: 1, width: props.width }} variant="outlined">
         <InputLabel htmlFor="outlined-adornment-password">{props.label}</InputLabel>
         <OutlinedInput
-          id="outlined-adornment-password"
           type={values.showPassword ? 'text' : 'password'}
           value={values.password}
-          onChange={handleChange('password')}
+          onChange={e=>props.set(e.target.value)}
           endAdornment={
             <InputAdornment position="end">
               <IconButton

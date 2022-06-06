@@ -14,6 +14,7 @@ function CreateUser(){
     const [userEmail,setEmail] = useState("")
     const [userPhone,setPhone] = useState("")
     const [userPassword,setPassword] = useState("")
+    const [confirmPassword,setConfirmPassword] = useState("")
     const [notificationByEmail, setnotificationByEmail] = useState(true)
     const [notificationByWhatsapp, setnotificationByWhatsapp] = useState(true)
 
@@ -45,8 +46,8 @@ function CreateUser(){
             <TextField sx={{ m: 1, width: '50ch' }} id="nickname" label="UserName" variant="outlined" onChange={e=>{setUserName(e.target.value)}}/>
             <TextField sx={{ m: 1, width: '50ch' }} id="email" label="Email" variant="outlined" onChange={e =>{setEmail(e.target.value)}}/>
             <TextField sx={{ m: 1, width: '50ch' }} id="phone" label="Phone" variant="outlined" onChange={e => {setPhone(e.target.value)}}/>
-            <PasswordInput label="Password" width="50ch"></PasswordInput>
-            <PasswordInput label="Confirm password" width="50ch"></PasswordInput>
+            <PasswordInput label="Password" set={setPassword} width="50ch"></PasswordInput>
+            <PasswordInput label="Confirm password" set={setConfirmPassword} width="50ch"></PasswordInput>
             <FormGroup edgeStart sx={{m:1}}>
                 <FormControlLabel control={<Checkbox defaultChecked onChange={()=> setnotificationByEmail()}/>} label="Send notification by Email" />
                 <FormControlLabel control={<Checkbox defaultChecked onChange={()=> setnotificationByWhatsapp()} />} label="Send notification by Whatsapp" />
