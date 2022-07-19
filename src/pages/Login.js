@@ -5,14 +5,33 @@ import { Link } from "react-router-dom";
 import axios from 'axios'
 import {enviroment} from '../enviroment'
 import Modal from '@mui/material/Modal';
-import ModalError from '../components/ModalError'
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import { useNavigate } from 'react-router-dom';
 
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 
 function Login(){
-    const [UserName,setUserName] = useState('')
-    const [password, setPassword] = useState('')
-    const [rightPanelActive, setRightPanelActive] = useState(false)
+  const navigate = useNavigate();
+  const [UserName,setUserName] = useState('')
+  const [password, setPassword] = useState('')
+  const [rightPanelActive, setRightPanelActive] = useState(false)
+  const [open, setOpen] = useState(false)
+  const handleClose = () => setOpen(false);
+  const handleOpen = () => setOpen(true);
     
     async function postLogin(){
       let params = {
@@ -21,20 +40,22 @@ function Login(){
       }
       axios.post(enviroment.urlBaseBack+'/Login', params)
       .then((res)=>{
+        console.log('ver res: ', res)
         if(res){
           sessionStorage.clear()
           sessionStorage.setItem('userId',res.data.userID)
           sessionStorage.setItem('userName',res.data.userName)
           sessionStorage.setItem('userEmail',res.data.userEmail)
-          return console.log(res)
+          navigate("./menuPrincipal")
+          return console.log('respuesta es ', res.status)
         }
         return false
+      }).catch((res) => {
+        console.log('ver respuesta ', res)
+        handleOpen()
       })
     }
-    const [open, setOpen] = useState(false)
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-
+      
     const handleClick = () => {
      postLogin()
     }
@@ -54,20 +75,24 @@ function Login(){
           <input type="email" placeholder="Usuario" value={UserName} onChange={e=> {setUserName(e.target.value)}}/>
           <input type="password" placeholder="Password" value={password} onChange={e => {setPassword(e.target.value)}} />
           <a href="#">Olvidaste tu contraseña?</a>
-            <Link to='/menuPrincipal'>
+            {/* <Link to='/menuPrincipal'> */}
              <button type='button' onClick={()=> handleClick()}>Iniciar sesión</button>
              <Modal
-               open={open}
-               onClose={handleClose}
-               aria-labelledby="modal-modal-title"
-               aria-describedby="modal-modal-description"
-             >
-            <ModalError 
-              tittle="Error de logueo"
-              message="Ingrese contraseña y usuario "
-            ></ModalError>
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+             <Box sx={style}>
+                <h1> Contraseña-Usuario incorrecto</h1>
+                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                  Por favor vuelva a ingresar su contraseña y Usuario
+                </Typography>
+                  <Button onClick={()=>handleClose()} style={{margin:'5px'}} variant="contained" color="primary"> Aceptar </Button>
+                
+                </Box>
             </Modal>     
-            </Link>
+            {/* </Link> */}
          
           
         </form>

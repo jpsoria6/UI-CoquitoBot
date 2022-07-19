@@ -10,6 +10,7 @@ import ViewGraphic from './pages/ViewGraphic';
 import MyAccount from './pages/MyAccount';
 import History from './pages/History';
 import Login from "./pages/Login";
+import VerBots from "./pages/VerBots";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="History" element={<History/>} />
             <Route path="Graphic" element={<ViewGraphic/>} />
             <Route path="MyAccount" element={<MyAccount/>} />
+            <Route path="VerBots" element={<VerBots/>} />
           </Routes>
       {/* <Grid container spacing={2}>
         <Grid item xs={2}>

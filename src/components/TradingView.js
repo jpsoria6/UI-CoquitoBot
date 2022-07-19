@@ -6,7 +6,7 @@ function TradingView(props){
         <div style={{'width': props.width, 'height':props.height}}>
         <TradingViewWidget
         symbol={props.pair}
-        theme={Themes.DARK}
+        theme={Themes.LITE}
         autosize
         />
         </div>

@@ -56,7 +56,9 @@ const Operations = () =>{
                 pair={par}/>
             </Grid>
             <Grid item xs={3} style={{margin:'3px'}}>
+                <h1> Operaciones Abiertas </h1>
                 <DataGrid
+                style={{margin:'2px'}}
                   rows={operacioness}
                   columns={columns}
                   hideFooter
@@ -65,15 +67,13 @@ const Operations = () =>{
                   }}
                 />
             </Grid>
-            <Grid container spacing={2}>
-                <Grid item xs={3}>
-                    <h5>AMOUNT   50</h5>
-                    <h5>PROFIT   <b style={{color:'green'}}> +50 </b> </h5>
-                    <h5>RESULT   50</h5>
-                </Grid>
-                <Grid item xs={6}>
-                    <Button sx={{margin:'5px'}} variant="contained" color="error">Close Operation</Button>
-                </Grid>
+            <Grid container spacing={3} xs={6} style={{padding:10}} >
+                
+                    <h5 style={{margin:30}}>AMOUNT   50</h5>
+                    <h5 style={{margin:30}}>PROFIT   <b style={{color:'green'}}> +50 </b> </h5>
+                    <h5 style={{margin:30}}>RESULT   50</h5>
+                    <Button variant="contained" color="error">Close Operation</Button>
+                
             </Grid>
         </Grid>
         </Grid>

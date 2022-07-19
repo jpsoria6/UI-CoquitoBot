@@ -12,13 +12,11 @@ import {enviroment} from '../enviroment';
  
 function CreateBot(){
  
-    const [nickname,setNickname] = useState("")
-    const [apiKey,setApiKey] = useState("")
+    const [userNickname,setNickname] = useState("")
+    const [binanceApiKey,setApiKey] = useState("")
     const [apiSecret,setApiSecret] = useState("")
     const [currentRisk,setCurrentRisk] = useState("")
     const [amountPerOperation,setAmountPerOperation] = useState("")
-    const minAmoutPerOperation = 3;
-    const maxAmoutPerOperation = 30;
     const riskPlans = [
         { "value" : 1,"text" : "LOW" },
         { "value" : 2,"text" : "MEDIUM" },
@@ -29,11 +27,11 @@ function CreateBot(){
         let params = {
             userId : sessionStorage.getItem('userId'),
             bot : {
-                nickname,
-                apiKey,
-                secretKey: apiSecret,
-                percentToInvest: amountPerOperation,
-                modeId: currentRisk
+                userNickname,
+                binanceApiKey,
+                binanceSecretKey: apiSecret,
+                initialTradingAmount: amountPerOperation,
+                riskType: currentRisk
             }
         }
         axios.post(enviroment.urlBaseBack+'/Bot', params)
@@ -45,10 +43,6 @@ function CreateBot(){
       })
     }
 
-    const setSliderValue = (evt,newValue) =>{
-        setAmountPerOperation(newValue);
-    }
-
     return (
         <Grid
         container
@@ -57,9 +51,10 @@ function CreateBot(){
         justifyContent="center"
         alignItems="center"
         >
-            <TextField sx={{ m: 1, width: '50ch' }} id="nickname" label="Nickname" variant="outlined" value={nickname} onChange={e=>{setNickname(e.target.value)}}/>
-            <TextField sx={{ m: 1, width: '50ch' }} id="apiKey" label="Api Key" variant="outlined" value={apiKey} onChange={e=>{setApiKey(e.target.value)}}/>
+            <TextField sx={{ m: 1, width: '50ch' }} id="userNickname" label="Nombre del BOT" variant="outlined" value={userNickname} onChange={e=>{setNickname(e.target.value)}}/>
+            <TextField sx={{ m: 1, width: '50ch' }} id="apiKey" label="Api Key" variant="outlined" value={binanceApiKey} onChange={e=>{setApiKey(e.target.value)}}/>
             <TextField sx={{ m: 1, width: '50ch' }} id="apiSecret" label="Api Secret" variant="outlined" value={apiSecret} onChange={e =>{setApiSecret(e.target.value)}}/>
+            <TextField sx={{ m: 1, width: '50ch' }} id="apiSecret" type="number" label="Monto inicial a tradear" variant="outlined" value={amountPerOperation} onChange={e =>{setAmountPerOperation(e.target.value)}}/>
             <Box sx={{m:1, width: '50ch' }}>
                 <CustomSelect 
                     label="Risk" 
@@ -67,7 +62,7 @@ function CreateBot(){
                     value={currentRisk}
                     set={setCurrentRisk}/>
             </Box>
-            <Box sx={{m:1, width: '50ch' }}>
+            {/* <Box sx={{m:1, width: '50ch' }}>
                 <Typography 
                 variant="caption"
                 gutterBottom>
@@ -79,7 +74,7 @@ function CreateBot(){
                 valueLabelDisplay="on"
                 onChange={setSliderValue}
                 />
-            </Box>
+            </Box> */}
             <Button variant="contained" size='large' onClick={createBot}>Add Bot</Button>
         </Grid>
     )

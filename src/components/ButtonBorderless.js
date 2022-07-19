@@ -35,7 +35,7 @@ const ButtonBorderless = (props) => {
     
 
     return(
-        <StyledButton>{props.icon}{props.label}</StyledButton>
+        <StyledButton onClick={props.onClick}>{props.icon}{props.label}</StyledButton>
     )
 
 }

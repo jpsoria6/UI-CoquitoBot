@@ -21,7 +21,7 @@ function CreateUser(){
     async function postAccount(){
         let params = {
           userName,
-          userPassword : '1234',
+          userPassword,
           userPhone,
           userEmail,
           notificationByEmail,
@@ -43,11 +43,13 @@ function CreateUser(){
         justifyContent="center"
         alignItems="center"
         >
-            <TextField sx={{ m: 1, width: '50ch' }} id="nickname" label="UserName" variant="outlined" onChange={e=>{setUserName(e.target.value)}}/>
+            <TextField sx={{ m: 1, width: '50ch' }} id="nickname" label="Nombre de usuario" variant="outlined" onChange={e=>{setUserName(e.target.value)}}/>
             <TextField sx={{ m: 1, width: '50ch' }} id="email" label="Email" variant="outlined" onChange={e =>{setEmail(e.target.value)}}/>
-            <TextField sx={{ m: 1, width: '50ch' }} id="phone" label="Phone" variant="outlined" onChange={e => {setPhone(e.target.value)}}/>
-            <PasswordInput label="Password" set={setPassword} width="50ch"></PasswordInput>
-            <PasswordInput label="Confirm password" set={setConfirmPassword} width="50ch"></PasswordInput>
+            <TextField sx={{ m: 1, width: '50ch' }} id="phone" label="Telefono" variant="outlined" onChange={e => {setPhone(e.target.value)}}/>
+            <TextField sx={{ m: 1, width: '50ch' }} type="password" id="password" label="Contraseña" variant="outlined" onChange={e => {setPassword(e.target.value)}}/>
+            <TextField sx={{ m: 1, width: '50ch' }} type="password" id="confirmPassword" label="Confirmar Contraseña" variant="outlined" onChange={e => {setConfirmPassword(e.target.value)}}/>
+            {/* <PasswordInput label="Password" set={setPassword} width="50ch"></PasswordInput> */}
+            {/* <PasswordInput label="Confirm password" set={setConfirmPassword} width="50ch"></PasswordInput> */}
             <FormGroup edgeStart sx={{m:1}}>
                 <FormControlLabel control={<Checkbox defaultChecked onChange={()=> setnotificationByEmail()}/>} label="Send notification by Email" />
                 <FormControlLabel control={<Checkbox defaultChecked onChange={()=> setnotificationByWhatsapp()} />} label="Send notification by Whatsapp" />

@@ -13,7 +13,7 @@ const MyAccount = () => {
         </Grid>
         <Grid item xs={10}>
             <div style={{margin:'20px'}}>
-                <h1> Create your Bot </h1>
+                <h1> Crea tu Bot </h1>
                 <CreateBot />
           </div>
         </Grid>
